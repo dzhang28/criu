@@ -38,6 +38,10 @@ ifeq ($(ARCH),ppc64)
         restorer-obj-y	+= ./$(ARCH_DIR)/vdso-trampoline.o
 endif
 
+ifeq ($(ARCH),riscv64)
+        restorer-obj-y	+= ./$(ARCH_DIR)/vdso-lookup.o
+endif
+
 define gen-pie-rules
 $(1)-obj-y	+= $(1).o
 $(1)-obj-e	+= pie.lib.a
